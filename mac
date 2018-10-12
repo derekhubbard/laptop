@@ -107,55 +107,53 @@ tap "caskroom/cask"
 brew "ack"
 brew "coreutils"
 brew "ctags"
-brew "universal-ctags", args: ["HEAD"]
+brew "fd"
 brew "fzf"
 brew "gcc"
 brew "git"
 brew "gpg"
+brew "grep"
+brew "libgcrypt"
+brew "libssh2"
+brew "neovim"
 brew "openssl"
 brew "rcm"
 brew "reattach-to-user-namespace"
 brew "the_silver_searcher"
 brew "tmux"
+brew "tree"
+brew "universal-ctags", args: ["HEAD"]
 brew "vim"
+brew "watch"
 brew "watchman"
 brew "zsh"
+brew "zsh-completions"
 
-# Image/metadata manipulation
+# Image/metadata/pdf manipulation
+brew "ghostscript"
 brew "graphicsmagick"
 brew "imagemagick"
 brew "exiftool"
+brew "source-to-image"
 
 # Development Tools
 brew "exercism"
+brew "make"
+brew "readline"
+brew "xz"
+brew "zlib"
 
 # Databases
 brew "mongodb"
+brew "redis"
+brew "sqlite3"
+
+# Applications
+cask "atom"
 
 # TODO: organize the remaining dependencies
-#brew "fd"
-#brew "ghostscript"
-#brew "git"
-#brew "gradle"
-#brew "grep"
-#brew "libgcrypt"
-#brew "libssh2"
-#brew "make"
-#brew "neovim"
-#brew "python"
-#brew "rbenv"
-#brew "redis"
-#brew "rlwrap"
-#brew "source-to-image"
-#brew "tmux"
-#brew "tree"
-#brew "watch"
-#brew "watchman"
-#brew "zsh"
-#brew "zsh-completions"
 #cask "1password"
 #cask "alfred"
-#cask "atom"
 #cask "blender"
 #cask "chrome-devtools"
 #cask "dash"
@@ -224,7 +222,7 @@ number_of_cores=$(sysctl -n hw.ncpu)
 bundle config --global jobs $((number_of_cores - 1))
 
 fancy_echo "Installing latest Node..."
-bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring"
+bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring" 
 install_asdf_language "nodejs"
 
 fancy_echo "Installing latest Elixir..."
