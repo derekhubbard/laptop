@@ -31,5 +31,7 @@ If running OSX 10.14, install the OSX SDK Headers manually:
 ```
 sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
 ```
+For more info, see: [https://github.com/Homebrew/homebrew-core/issues/29176#issuecomment-398656987](https://github.com/Homebrew/homebrew-core/issues/29176#issuecomment-398656987)
+
 ## What It Sets Up
 TODO
