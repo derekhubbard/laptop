@@ -8,7 +8,7 @@ This script is heavily based on the Thoughtbot version by the same name: [https:
 ## Install
 Download the script:
 ```
-curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/master/mac
+curl --remote-name https://raw.githubusercontent.com/derekhubbard/laptop/master/mac
 ```
 
 Review the script (avoid running scripts you haven't read!):
