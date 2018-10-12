@@ -105,11 +105,13 @@ tap "caskroom/cask"
 
 # Unix
 brew "ack"
+brew "coreutils"
 brew "ctags"
 brew "universal-ctags", args: ["HEAD"]
 brew "fzf"
 brew "gcc"
 brew "git"
+brew "gpg"
 brew "openssl"
 brew "rcm"
 brew "reattach-to-user-namespace"
@@ -199,10 +201,20 @@ install_asdf_language() {
   fi
 }
 
+gem_install_or_update() {
+  if gem list "$1" --installed > /dev/null; then
+    gem update "$@"
+  else
+    gem install "$@"
+  fi
+}
+
 # shellcheck disable=SC1090
 source "$HOME/.asdf/asdf.sh"
 install_asdf_plugin "ruby" "https://github.com/asdf-vm/asdf-ruby.git"
 install_asdf_plugin "nodejs" "https://github.com/asdf-vm/asdf-nodejs.git"
+install_asdf_plugin "elixir" "https://github.com/asdf-vm/asdf-elixir.git"
+install_asdf_plugin "python" "https://github.com/tuvistavie/asdf-python.git"
 
 fancy_echo "Installing latest Ruby..."
 install_asdf_language "ruby"
@@ -215,8 +227,16 @@ fancy_echo "Installing latest Node..."
 bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring"
 install_asdf_language "nodejs"
 
+fancy_echo "Installing latest Elixir..."
+install_asdf_language "elixir"
+
+fancy_echo "Installing latest Python..."
+install_asdf_language "python"
+
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
   # shellcheck disable=SC1090
   . "$HOME/.laptop.local"
 fi
+
+
