@@ -173,6 +173,9 @@ cask "atom"
 #cask "visual-studio-code"
 EOF
 
+fancy_echo "Installing oh my zsh..."
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 fancy_echo "Configuring asdf version manager..."
 if [ ! -d "$HOME/.asdf" ]; then
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.5.0
@@ -220,6 +223,9 @@ gem update --system
 gem_install_or_update "bundler"
 number_of_cores=$(sysctl -n hw.ncpu)
 bundle config --global jobs $((number_of_cores - 1))
+
+fancy_echo "Installing additional Ruby gems..."
+gem_install_or_update "tmuxinator"
 
 fancy_echo "Installing latest Node..."
 bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring" 
