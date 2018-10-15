@@ -168,6 +168,7 @@ cask "insomnia"
 cask "iterm2"
 cask "macdown"
 cask "slack"
+cask "spotify"
 cask "studio-3t"
 cask "visual-studio-code"
 EOF
