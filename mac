@@ -202,6 +202,11 @@ if [ ! -d "$ZSH_CUSTOM_PLUGINS_PATH/zsh-autosuggestions" ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM_PLUGINS_PATH/zsh-autosuggestions"
 fi
 
+if [ ! -d "$ZSH_CUSTOM_PLUGINS_PATH/gitgo" ]; then
+  fancy_echo "Installing gitgo..."
+  git clone https://github.com/ltj/gitgo.git "$ZSH_CUSTOM_PLUGINS_PATH/gitgo"
+fi
+
 fancy_echo "Configuring asdf version manager..."
 if [ ! -d "$HOME/.asdf" ]; then
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.5.0
