@@ -107,7 +107,6 @@ tap "caskroom/fonts"
 # Unix
 brew "ack"
 brew "coreutils"
-brew "ctags"
 brew "fd"
 brew "fzf"
 brew "gcc"
@@ -273,6 +272,9 @@ install_asdf_language "elixir"
 
 fancy_echo "Installing latest Python..."
 install_asdf_language "python"
+
+fancy_echo "Enable python 3 interface..."
+pip install neovim
 
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
