@@ -119,6 +119,7 @@ brew "neovim"
 brew "openssl"
 brew "rcm"
 brew "reattach-to-user-namespace"
+brew "ripgrep"
 brew "tmux"
 brew "tree"
 brew "universal-ctags", args: ["HEAD"]
