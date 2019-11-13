@@ -101,11 +101,12 @@ brew bundle --file=- <<EOF
 tap "thoughtbot/formulae"
 tap "homebrew/services"
 tap "universal-ctags/universal-ctags"
-tap "caskroom/cask"
-tap "caskroom/fonts"
+tap "homebrew/cask-fonts"
+tap "mongodb/brew"
 
 # Unix
 brew "ack"
+brew "awscli"
 brew "coreutils"
 brew "fd"
 brew "fzf"
@@ -126,6 +127,7 @@ brew "universal-ctags", args: ["HEAD"]
 brew "vim"
 brew "watch"
 brew "watchman"
+brew "yarn"
 brew "zsh"
 brew "zsh-completions"
 
@@ -144,7 +146,8 @@ brew "xz"
 brew "zlib"
 
 # Databases
-brew "mongodb"
+# brew "mongodb"
+brew "mongodb-community"
 brew "redis"
 brew "sqlite3"
 
@@ -176,7 +179,7 @@ cask "font-hack-nerd-font"
 EOF
 
 fancy_echo "Installing oh my zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 fancy_echo "Installing spaceship prompt..."
 ZSH_CUSTOM_THEMES_PATH=$HOME/.oh-my-zsh/custom/themes
