@@ -253,18 +253,19 @@ install_asdf_plugin "nodejs" "https://github.com/asdf-vm/asdf-nodejs.git"
 install_asdf_plugin "elixir" "https://github.com/asdf-vm/asdf-elixir.git"
 install_asdf_plugin "python" "https://github.com/tuvistavie/asdf-python.git"
 
-# fancy_echo "Installing latest Ruby..."
-# install_asdf_language "ruby"
-# gem update --system
-# gem_install_or_update "bundler"
-# number_of_cores=$(sysctl -n hw.ncpu)
-# bundle config --global jobs $((number_of_cores - 1))
+. $(brew --prefix asdf)/asdf.sh
 
-# fancy_echo "Installing additional Ruby gems..."
-# gem_install_or_update "tmuxinator"
+fancy_echo "Installing latest Ruby..."
+install_asdf_language "ruby"
+gem update --system
+gem_install_or_update "bundler"
+number_of_cores=$(sysctl -n hw.ncpu)
+bundle config --global jobs $((number_of_cores - 1))
+
+fancy_echo "Installing additional Ruby gems..."
+gem_install_or_update "tmuxinator"
 
 fancy_echo "Installing latest Node..."
-# bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring" 
 install_asdf_language "nodejs"
 
 fancy_echo "Installing latest Elixir..."
