@@ -139,6 +139,7 @@ brew "exiftool"
 brew "source-to-image"
 
 # Development Tools
+brew "asdf"
 brew "exercism"
 brew "make"
 brew "readline"
@@ -180,7 +181,7 @@ EOF
 
 fancy_echo "Installing oh my zsh..."
 ZSH_DIR=$HOME/.oh-my-zsh
-if [ ! -d $ZSH_DIR ]
+if [ ! -d $ZSH_DIR ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
 fi
 
@@ -210,12 +211,6 @@ fi
 if [ ! -d "$ZSH_CUSTOM_PLUGINS_PATH/gitgo" ]; then
   fancy_echo "Installing gitgo..."
   git clone https://github.com/ltj/gitgo.git "$ZSH_CUSTOM_PLUGINS_PATH/gitgo"
-fi
-
-fancy_echo "Configuring asdf version manager..."
-if [ ! -d "$HOME/.asdf" ]; then
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.5.0
-  append_to_zshrc "source $HOME/.asdf/asdf.sh" 1
 fi
 
 fancy_echo "Installing vim.plug..."
