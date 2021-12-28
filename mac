@@ -185,8 +185,10 @@ if [ ! -d $ZSH_DIR ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
 fi
 
-fancy_echo "Installing spaceship prompt..."
+fancy_echo "Installing zsh custom themes..."
 ZSH_CUSTOM_THEMES_PATH=$ZSH_DIR/custom/themes
+
+fancy_echo "Installing spaceship theme and prompt..."
 if [ ! -L "$ZSH_CUSTOM_THEMES_PATH/spaceship.zsh-theme" ]; then
   if [ ! -d "$ZSH_CUSTOM_THEMES_PATH/spaceship-prompt/" ]; then
     git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM_THEMES_PATH/spaceship-prompt"
@@ -194,6 +196,11 @@ if [ ! -L "$ZSH_CUSTOM_THEMES_PATH/spaceship.zsh-theme" ]; then
   ln -s "$ZSH_CUSTOM_THEMES_PATH/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM_THEMES_PATH/spaceship.zsh-theme"
 else 
   fancy_echo "Spaceship theme is already installed!"
+fi
+
+fancy_echo "Installing powerlevel10k theme..."
+if [ ! -L "$ZSH_CUSTOM_THEMES_PATH/powerlevel10k" ]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM_THEMES_PATH/powerlevel10k
 fi
 
 fancy_echo "Installing zsh plugins..."
