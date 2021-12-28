@@ -179,13 +179,13 @@ cask "font-hack-nerd-font"
 EOF
 
 fancy_echo "Installing oh my zsh..."
-ZSH_DIR=./.oh-my-zsh
+ZSH_DIR=$HOME/.oh-my-zsh
 if [ ! -d $ZSH_DIR ]
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
 fi
 
 fancy_echo "Installing spaceship prompt..."
-ZSH_CUSTOM_THEMES_PATH=$HOME/.oh-my-zsh/custom/themes
+ZSH_CUSTOM_THEMES_PATH=$ZSH_DIR/custom/themes
 if [ ! -L "$ZSH_CUSTOM_THEMES_PATH/spaceship.zsh-theme" ]; then
   if [ ! -d "$ZSH_CUSTOM_THEMES_PATH/spaceship-prompt/" ]; then
     git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM_THEMES_PATH/spaceship-prompt"
